@@ -6,9 +6,3 @@ php:
     not-name:
       - index.php
       - server.php
-# multiple languages is a pro feature
-# js:
-#   finder:
-#     not-name:
-#       - webpack.mix.js
-# css: true
