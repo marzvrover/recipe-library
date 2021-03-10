@@ -6,8 +6,9 @@ php:
     not-name:
       - index.php
       - server.php
-js:
-  finder:
-    not-name:
-      - webpack.mix.js
-css: true
+# multiple languages is a pro feature
+# js:
+#   finder:
+#     not-name:
+#       - webpack.mix.js
+# css: true
