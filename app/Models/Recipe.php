@@ -49,4 +49,11 @@ class Recipe extends Model
         return $this->belongsToMany(Ingredient::class)
                     ->withPivot('amount');
     }
+
+    /**
+     * Get the tags that the recipe belongs to.
+     */
+    public function tags() {
+        return $this->belongsToMany(Tag::class);
+    }
 }
