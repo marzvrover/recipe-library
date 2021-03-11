@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Recipe extends Model
+class Author extends Model
 {
     use HasFactory;
 
@@ -16,9 +16,7 @@ class Recipe extends Model
      */
     protected $fillable = [
         'name',
-        'description',
-        'instructions',
-        'source_url',
+        'website',
     ];
 
     /**
@@ -29,16 +27,9 @@ class Recipe extends Model
     protected $hidden = [];
 
     /**
-     * Get the user that owns the recipe.
+     * Get the recipes that are owned by this author.
      */
-    public function user() {
-        return $this->belongsTo(User::class);
-    }
-
-    /**
-     * Get the author that owns the recipe.
-     */
-    public function author() {
-        return $this->belongsTo(Author::class);
+    public function recipe() {
+        return $this->hasMany(Recipe::class);
     }
 }
