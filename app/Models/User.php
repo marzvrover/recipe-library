@@ -44,7 +44,8 @@ class User extends Authenticatable
     /**
      * Get the recipes that owned by this user.
      */
-    public function recipes() {
+    public function recipes()
+    {
         return $this->hasMany(Recipe::class);
     }
 }

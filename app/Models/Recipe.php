@@ -31,21 +31,24 @@ class Recipe extends Model
     /**
      * Get the user that owns the recipe.
      */
-    public function user() {
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
 
     /**
      * Get the author that owns the recipe.
      */
-    public function author() {
+    public function author()
+    {
         return $this->belongsTo(Author::class);
     }
 
     /**
      * Get the ingredients that the recipe calls for.
      */
-    public function ingredients() {
+    public function ingredients()
+    {
         return $this->belongsToMany(Ingredient::class)
                     ->withPivot('amount');
     }
@@ -53,7 +56,8 @@ class Recipe extends Model
     /**
      * Get the tags that the recipe belongs to.
      */
-    public function tags() {
+    public function tags()
+    {
         return $this->belongsToMany(Tag::class);
     }
 }

@@ -28,7 +28,8 @@ class Tag extends Model
     /**
      * Get the recipes that the are tagged with this tag.
      */
-    public function recipes() {
+    public function recipes()
+    {
         return $this->belongsToMany(Recipe::class);
     }
 }

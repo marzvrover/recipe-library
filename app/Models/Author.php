@@ -29,7 +29,8 @@ class Author extends Model
     /**
      * Get the recipes that are owned by this author.
      */
-    public function recipe() {
+    public function recipe()
+    {
         return $this->hasMany(Recipe::class);
     }
 }
