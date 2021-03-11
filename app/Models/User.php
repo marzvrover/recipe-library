@@ -40,4 +40,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Get the recipes that owned by this user.
+     */
+    public function recipes()
+    {
+        return $this->hasMany(Recipe::class);
+    }
 }
