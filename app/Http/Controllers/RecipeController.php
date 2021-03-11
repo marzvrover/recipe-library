@@ -57,6 +57,8 @@ class RecipeController extends Controller
         $recipe = Recipe::make($validated);
         $recipe->author()->associate($author);
         $recipe->save();
+
+        return response()->json($recipe->toJson());
     }
 
     /**
