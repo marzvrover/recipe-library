@@ -19,7 +19,7 @@ class CreateIngredientRecipePivotTable extends Migration
             $table->unsignedBigInteger('recipe_id')->index();
             $table->foreign('recipe_id')->references('id')->on('recipes')->onDelete('cascade');
             $table->primary(['ingredient_id', 'recipe_id']);
-            $table->unsignedSmallInteger('amount');
+            $table->integer('amount');
         });
     }
 
