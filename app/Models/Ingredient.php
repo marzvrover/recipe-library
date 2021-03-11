@@ -29,7 +29,8 @@ class Ingredient extends Model
     /**
      * Get the recipes that use this ingredient.
      */
-    public function recipes() {
+    public function recipes()
+    {
         return $this->belongsToMany(Recipe::class);
     }
 }
