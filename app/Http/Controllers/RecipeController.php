@@ -2,11 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Author;
 use App\Models\Recipe;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
-use ReflectionClass;
 
 class RecipeController extends Controller
 {
@@ -16,16 +13,6 @@ class RecipeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
     {
         //
     }
@@ -78,17 +65,6 @@ class RecipeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Recipe $recipe)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Recipe  $recipe
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Recipe $recipe)
     {
         //
     }
