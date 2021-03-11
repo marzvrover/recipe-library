@@ -41,4 +41,12 @@ class Recipe extends Model
     public function author() {
         return $this->belongsTo(Author::class);
     }
+
+    /**
+     * Get the ingredients that the recipe calls for.
+     */
+    public function ingredients() {
+        return $this->belongsToMany(Ingredient::class)
+                    ->withPivot('amount');
+    }
 }
