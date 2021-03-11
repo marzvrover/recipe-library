@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Author;
 use App\Models\Recipe;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use ReflectionClass;
 
 class RecipeController extends Controller
 {
@@ -35,7 +38,37 @@ class RecipeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'name' => [
+                'required',
+                'string',
+            ],
+            'description' => [
+                'required',
+                'string',
+            ],
+            'instructions' => [
+                'required',
+                'string',
+            ],
+            'author' => [
+                'required',
+                'exists:authors,specifier',
+            ],
+            'source_url' => [
+                'nullable',
+                'url',
+            ],
+        ]);
+
+        // take author (specifier) and turn it into an author_id
+        $author = Author::where('specifier',
+                                $validated['specifier'])->findOrFail();
+        unset($validated['specifier']);
+
+        $recipe = Recipe::make($validated);
+        $recipe->author()->associate($author);
+        $recipe->save();
     }
 
     /**
