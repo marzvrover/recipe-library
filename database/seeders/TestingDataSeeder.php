@@ -28,17 +28,17 @@ class TestingDataSeeder extends Seeder
         $users = User::factory(50)->create();
         $recipes = new Collection();
 
-        for ($i = 0; $i < 200; ++$i) {
+        for ($i = 0; $i < 200; $i++) {
             $recipe = Recipe::factory()->create([
                 'user_id' => $users->random()->id,
                 'author_id' => $authors->random()->id,
             ]);
             $usedIngredients = [];
             $usedTags = [];
-            for ($j = 0; $j < 50; ++$j) {
+            for ($j = 0; $j < 50; $j++) {
                 if (rand(0, 1)) {
                     $ingredient = $ingredients->random()->id;
-                    if (!in_array($ingredient, $usedIngredients)) {
+                    if (! in_array($ingredient, $usedIngredients)) {
                         array_push($usedIngredients, $ingredient);
                         $recipe->ingredients()->attach(
                             $ingredient,
@@ -48,7 +48,7 @@ class TestingDataSeeder extends Seeder
                 }
                 if (rand(0, 1)) {
                     $tag = $tags->random()->id;
-                    if (!in_array($tag, $usedTags)) {
+                    if (! in_array($tag, $usedTags)) {
                         array_push($usedTags, $tag);
                         $recipe->tags()->attach($tag);
                     }
