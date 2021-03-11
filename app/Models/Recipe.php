@@ -27,4 +27,11 @@ class Recipe extends Model
      * @var array
      */
     protected $hidden = [];
+
+    /**
+     * Get the user that owns the recipe.
+     */
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
 }
