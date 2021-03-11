@@ -23,7 +23,7 @@ class AuthorFactory extends Factory
     {
         return [
             'name' => $this->faker->name,
-            'specifier' => $this->faker->word,
+            'specifier' => $this->faker->unique()->word,
             'website' => $this->faker->url,
         ];
     }
