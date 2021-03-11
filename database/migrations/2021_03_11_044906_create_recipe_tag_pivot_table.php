@@ -15,9 +15,9 @@ class CreateRecipeTagPivotTable extends Migration
     {
         Schema::create('recipe_tag', function (Blueprint $table) {
             $table->unsignedBigInteger('recipe_id')->index();
-            $table->foreign('recipe_id')->references('id')->on('recipe')->onDelete('cascade');
+            $table->foreign('recipe_id')->references('id')->on('recipes')->onDelete('cascade');
             $table->unsignedBigInteger('tag_id')->index();
-            $table->foreign('tag_id')->references('id')->on('tag')->onDelete('cascade');
+            $table->foreign('tag_id')->references('id')->on('tags')->onDelete('cascade');
             $table->primary(['recipe_id', 'tag_id']);
         });
     }
