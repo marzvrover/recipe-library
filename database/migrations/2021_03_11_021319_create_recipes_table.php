@@ -20,7 +20,7 @@ class CreateRecipesTable extends Migration
             $table->string('name');
             $table->longText('description');
             $table->longText('instructions');
-            $table->string('source_url');
+            $table->string('source_url')->nullable();
             $table->timestamps();
         });
     }
